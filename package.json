@@ -63,6 +63,11 @@
     },
     "collectCoverage": true
   },
+  "peerDependencies": {
+    "react-native": ">= 0.45",
+    "redux-observable": ">= 0.16",
+    "rxjs": ">= 5.5"
+  },
   "devDependencies": {
     "@types/jest": "^22.2.0",
     "@types/react-native": "^0.52.18",
@@ -72,7 +77,10 @@
     "jest": "^22.4.2",
     "lint-staged": "^7.0.0",
     "prettier": "^1.4.4",
+    "react-native": ">= 0.45.0",
+    "redux-observable": ">= 0.16.0",
     "rimraf": "^2.6.1",
+    "rxjs": ">= 5.5.0",
     "semantic-release-cli": "^3.6.4",
     "ts-jest": "^22.4.2",
     "tslint": "^5.8.0",
@@ -80,9 +88,6 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "react-native": ">= 0.45.0",
-    "redux-observable": ">= 0.16.0",
-    "rxjs": ">= 5.5.0",
     "typescript-fsa": ">= 2.5.0"
   }
 }

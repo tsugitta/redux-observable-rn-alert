@@ -5892,7 +5892,7 @@ react-devtools-core@3.1.0:
     shell-quote "^1.6.1"
     ws "^2.0.3"
 
-react-native@*:
+"react-native@>= 0.45.0":
   version "0.54.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.54.2.tgz#73786e7bf3f80b0b060ca0bfe5b192f9c2f253da"
   dependencies:
@@ -6105,7 +6105,7 @@ realpath-native@^1.0.0:
   dependencies:
     util.promisify "^1.0.0"
 
-"redux-observable@>= 0.18.0":
+"redux-observable@>= 0.16.0":
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-0.18.0.tgz#48de1f35554b7ba23a88b18379ca1c93f5124197"
   dependencies:
@@ -6448,7 +6448,7 @@ rx-lite@*, rx-lite@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
-"rxjs@>= 5.5.7", rxjs@^5.4.2, rxjs@^5.5.2:
+"rxjs@>= 5.5.0", rxjs@^5.4.2, rxjs@^5.5.2:
   version "5.5.7"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.7.tgz#afb3d1642b069b2fbf203903d6501d1acb4cda27"
   dependencies:

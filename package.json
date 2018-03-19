@@ -81,8 +81,8 @@
   },
   "dependencies": {
     "react-native": "*",
-    "redux-observable": ">= 0.18.0",
-    "rxjs": ">= 5.5.7",
+    "redux-observable": ">= 0.16.0",
+    "rxjs": ">= 5.5.0",
     "typescript-fsa": ">= 2.5.0"
   }
 }

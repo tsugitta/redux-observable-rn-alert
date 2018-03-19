@@ -1,0 +1,24 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+      "tslint:recommended",
+      "tslint-config-prettier"
+  ],
+  "jsRules": {},
+  "rules": {
+    "semicolon": false,
+    "quotemark": [
+        true,
+        "single"
+    ],
+    "indent": [
+        true
+    ],
+    "interface-name": [
+        false
+    ],
+    "arrow-parens": false,
+    "object-literal-sort-keys": false,
+    "no-empty": false
+  }
+}

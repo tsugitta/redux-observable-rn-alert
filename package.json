@@ -80,7 +80,7 @@
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "react-native": "*",
+    "react-native": ">= 0.45.0",
     "redux-observable": ">= 0.16.0",
     "rxjs": ">= 5.5.0",
     "typescript-fsa": ">= 2.5.0"

@@ -47,6 +47,25 @@ dispatch(AlertActions.alert({
       text: 'baz',
       onPressAction: { type: 'BAZ', payload: { qux: 'qux' } }
     }
-  ]
+  ],
+  options: {
+    // below are only for Android
+    cancelable: true, 
+    onDismissAction: { type: 'QUX', payload: { qux: 'qux' }}
+  },
+  type: ''
 }));
 ```
+
+## Interface
+
+Basically, the payload attributes of `AlertActions.alert` follow the attributes of `Alert.alert()`.
+below are the interface and differences from the attributes of `Alert.alert()`.
+
+NAME | TYPE| REQUIRED | DIFFERENCE
+------ | ---- | ------- | ----
+title | `string` | Yes | Nothing
+message | `string` | No | Nothing
+buttons | `Array<{ text?: string, onPressAction?: Action, style?: string }>` | No | onPressAction corresponds to onPress of `Alert.alert()`
+options | `{ cancelable?: boolean, onDismissAction?: Action }` | No | onDismissAction corresponds to onDismiss of `Alert.alert()`
+type | `string` | No | Nothing

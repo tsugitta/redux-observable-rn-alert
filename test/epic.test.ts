@@ -27,10 +27,8 @@ describe('alertEpic', () => {
 
     alertEpic(action$, null, null).subscribe(() => {})
 
-    setTimeout(() => {
-      expect(Alert.alert).toHaveBeenCalledWith(title, message, undefined, undefined, type)
-      done()
-    }, 100)
+    expect(Alert.alert).toHaveBeenCalledWith(title, message, undefined, undefined, type)
+    done()
   })
 
   it('does not show alert when non alertAction passed', done => {
@@ -70,10 +68,8 @@ describe('alertEpic', () => {
       done()
     })
 
-    setTimeout(() => {
-      const buttons = Alert.alert.mock.calls[0][2]
-      buttons[0].onPress()
-    }, 100)
+    const buttons = Alert.alert.mock.calls[0][2]
+    buttons[0].onPress()
   })
 
   it('emits dismiss action when dismissed (only Android)', done => {
@@ -92,9 +88,7 @@ describe('alertEpic', () => {
       done()
     })
 
-    setTimeout(() => {
-      const options = Alert.alert.mock.calls[0][3]
-      options.onDismiss()
-    }, 100)
+    const options = Alert.alert.mock.calls[0][3]
+    options.onDismiss()
   })
 })

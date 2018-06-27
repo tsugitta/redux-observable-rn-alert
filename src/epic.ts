@@ -8,7 +8,7 @@ import { AlertButtonWithAction, AlertOptionsWithAction } from './interfaces'
 
 const buttonWithActionToButton = <Payload>(
   observer: Observer<Action<Payload>>,
-  buttonWithAction: AlertButtonWithAction<Payload>
+  buttonWithAction: AlertButtonWithAction<Payload>,
 ): AlertButton => {
   const { text, onPressAction, style } = buttonWithAction
 
@@ -22,13 +22,13 @@ const buttonWithActionToButton = <Payload>(
   return {
     text,
     style,
-    onPress
+    onPress,
   }
 }
 
 const optionsWithActionToOptions = <Payload>(
   observer: Observer<Action<Payload>>,
-  optionsWithAction: AlertOptionsWithAction<Payload>
+  optionsWithAction: AlertOptionsWithAction<Payload>,
 ): AlertOptions => {
   const { cancelable, onDismissAction } = optionsWithAction
 
@@ -41,31 +41,31 @@ const optionsWithActionToOptions = <Payload>(
 
   return {
     cancelable,
-    onDismiss
+    onDismiss,
   }
 }
 
 export const alertEpic: Epic<Action<any>, any> = (action$: ActionsObservable<Action<any>>) =>
   action$.pipe(
-    ofAction(AlertActions.alert),
+    filter(AlertActions.alert.match),
     mergeMap(action => {
       const {
         title,
         message,
         buttons: buttonsWithAction,
         options: optionsWithAction,
-        type
+        type,
       } = action.payload
 
       return Observable.create((observer: Observer<Action<any>>) => {
         const buttons =
           buttonsWithAction &&
           buttonsWithAction.map(buttonWithAction =>
-            buttonWithActionToButton(observer, buttonWithAction)
+            buttonWithActionToButton(observer, buttonWithAction),
           )
         const options = optionsWithAction && optionsWithActionToOptions(observer, optionsWithAction)
 
         Alert.alert(title, message, buttons, options, type)
       })
-    })
+    }),
   )

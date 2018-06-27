@@ -6,5 +6,5 @@ const actionCreator = actionCreatorFactory()
 const alert: ActionCreator<AlertActionPayload> = actionCreator<AlertActionPayload>('Alert/ALERT')
 
 export const AlertActions = {
-  alert
+  alert,
 }

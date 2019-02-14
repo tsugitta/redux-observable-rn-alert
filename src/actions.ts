@@ -1,10 +1,13 @@
-import { ActionCreator, actionCreatorFactory } from 'typescript-fsa'
 import { AlertActionPayload } from './interfaces'
 
-const actionCreator = actionCreatorFactory()
+const ALERT = 'Alert/ALRET' as 'Alert/ALERT'
 
-const alert: ActionCreator<AlertActionPayload> = actionCreator<AlertActionPayload>('Alert/ALERT')
+const alert = (payload: AlertActionPayload) => ({
+  type: ALERT as typeof ALERT,
+  payload,
+})
 
 export const AlertActions = {
+  ALERT,
   alert,
 }

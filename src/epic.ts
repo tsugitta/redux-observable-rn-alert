@@ -1,14 +1,14 @@
 import { Alert, AlertButton, AlertOptions } from 'react-native'
+import { Action } from 'redux'
 import { ActionsObservable, Epic } from 'redux-observable'
 import { Observable, Observer } from 'rxjs'
 import { filter, mergeMap } from 'rxjs/operators'
-import { Action } from 'typescript-fsa'
 import { AlertActions } from './actions'
 import { AlertButtonWithAction, AlertOptionsWithAction } from './interfaces'
 
-const buttonWithActionToButton = <Payload>(
-  observer: Observer<Action<Payload>>,
-  buttonWithAction: AlertButtonWithAction<Payload>,
+const buttonWithActionToButton = (
+  observer: Observer<Action>,
+  buttonWithAction: AlertButtonWithAction,
 ): AlertButton => {
   const { text, onPressAction, style } = buttonWithAction
 
@@ -26,9 +26,9 @@ const buttonWithActionToButton = <Payload>(
   }
 }
 
-const optionsWithActionToOptions = <Payload>(
-  observer: Observer<Action<Payload>>,
-  optionsWithAction: AlertOptionsWithAction<Payload>,
+const optionsWithActionToOptions = (
+  observer: Observer<Action>,
+  optionsWithAction: AlertOptionsWithAction,
 ): AlertOptions => {
   const { cancelable, onDismissAction } = optionsWithAction
 
@@ -45,9 +45,12 @@ const optionsWithActionToOptions = <Payload>(
   }
 }
 
-export const alertEpic: Epic<Action<any>, any> = (action$: ActionsObservable<Action<any>>) =>
+export const alertEpic: Epic<Action, any> = (action$: ActionsObservable<Action>) =>
   action$.pipe(
-    filter(AlertActions.alert.match),
+    filter(
+      (action: Action): action is ReturnType<typeof AlertActions.alert> =>
+        action.type === AlertActions.ALERT,
+    ),
     mergeMap(action => {
       const {
         title,
@@ -57,7 +60,7 @@ export const alertEpic: Epic<Action<any>, any> = (action$: ActionsObservable<Act
         type,
       } = action.payload
 
-      return Observable.create((observer: Observer<Action<any>>) => {
+      return Observable.create((observer: Observer<Action>) => {
         const buttons =
           buttonsWithAction &&
           buttonsWithAction.map(buttonWithAction =>

@@ -1,22 +1,22 @@
 import { Alert } from 'react-native'
-import { Action } from 'typescript-fsa'
+import { Action } from 'redux'
 
-export interface AlertButtonWithAction<ActionPayload> {
+export interface AlertButtonWithAction {
   text?: string
-  onPressAction?: Action<ActionPayload>
+  onPressAction?: Action
   style?: 'default' | 'cancel' | 'destructive'
 }
 
 // For Android
-export interface AlertOptionsWithAction<ActionPayload> {
+export interface AlertOptionsWithAction {
   cancelable?: boolean
-  onDismissAction?: Action<ActionPayload>
+  onDismissAction?: Action
 }
 
 export interface AlertActionPayload {
   title: string
   message?: string
-  buttons?: Array<AlertButtonWithAction<any>>
-  options?: AlertOptionsWithAction<any>
+  buttons?: AlertButtonWithAction[]
+  options?: AlertOptionsWithAction
   type?: string
 }

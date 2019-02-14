@@ -1,6 +1,6 @@
 {
   "name": "redux-observable-rn-alert",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Support side effects of `Alert.alert()` in a react-native app using redux & redux-observable.",
   "keywords": [
     "react-native",

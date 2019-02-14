@@ -1,6 +1,6 @@
 # redux-observable-rn-alert
 
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
+[![npm version](https://img.shields.io/npm/v/redux-observable-rn-alert.svg)](https://www.npmjs.com/package/redux-observable-rn-alert)
 [![Build Status](https://travis-ci.org/tsugitta/redux-observable-rn-alert.svg?branch=master)](https://travis-ci.org/tsugitta/redux-observable-rn-alert)
 [![Coverage Status](https://coveralls.io/repos/github/tsugitta/redux-observable-rn-alert/badge.svg?branch=master)](https://coveralls.io/github/tsugitta/redux-observable-rn-alert?branch=master)
 

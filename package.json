@@ -61,7 +61,12 @@
         "statements": 95
       }
     },
-    "collectCoverage": true
+    "collectCoverage": true,
+    "globals": {
+      "ts-jest": {
+        "diagnostics": false
+      }
+    }
   },
   "peerDependencies": {
     "react-native": ">= 0.45",
